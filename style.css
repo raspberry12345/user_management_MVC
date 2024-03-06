@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    width: 100%;
+
+    background-color: azure;
+    text-align: center;
+    
+}
+h1{
+    padding: 2.3rem 0;
+    font-family: Verdana, sans-serif;
+}
+div{
+    margin-top: 3rem;
+    width: 100%;
+    text-align: center;
+}
+input{
+    text-align: center;
+    margin-bottom: 0.3rem;
+}
+li{
+    padding: 0.3rem 0;
+}
