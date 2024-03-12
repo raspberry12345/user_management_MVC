@@ -15,16 +15,21 @@
 
     //read user
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        echo $_POST['firstname'];
+        $newModel = new UserDaoImpl();
+
+        //Database transaction
+        $listOfUsers = $newModel->readUser();
+        header("Content-Type: application/json");
+        echo json_encode($listOfUsers);
     }
 
     //update user
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        echo $_POST['firstname'];
+        
     }
 
     //delete user
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        echo $_POST['firstname'];
+        
     }
 ?>
