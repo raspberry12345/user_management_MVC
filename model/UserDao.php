@@ -24,6 +24,7 @@
         
         for ($i=0; $i < count($users); $i++) { 
             array_push($userContainer, (object)[
+                'id' => $users[$i]['id'],
                 'firstname' => $users[$i]['firstname'],
                 'lastname' => $users[$i]['lastname'],
                 'age' => $users[$i]['age'],

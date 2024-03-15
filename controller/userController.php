@@ -5,22 +5,30 @@
     //create user
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
-        $newUser = new User($_POST['firstname'],$_POST['lastname'],$_POST['age']);
+        
         $newModel = new UserDaoImpl();
+        // be sure the interface is used
+        if ($newModel instanceof UserDao) {
+            $newUser = new User($_POST['firstname'],$_POST['lastname'],$_POST['age']);
+            //Database transaction
+            $newModel->createUser($newUser);
+        }
 
-        //Database transaction
-        $newModel->createUser($newUser);
+        
+        
              
     }
 
     //read user
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $newModel = new UserDaoImpl();
-
-        //Database transaction
-        $listOfUsers = $newModel->readUser();
-        header("Content-Type: application/json");
-        echo json_encode($listOfUsers);
+        // be sure the interface is used
+        if ($newModel instanceof UserDao) {
+            //Database transaction
+            $listOfUsers = $newModel->readUser();
+            header("Content-Type: application/json");
+            echo json_encode($listOfUsers);
+        }
     }
 
     //update user
