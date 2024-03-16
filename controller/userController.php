@@ -20,7 +20,7 @@
     }
 
     //read user
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['operations'] === 'read') {
         $newModel = new UserDaoImpl();
         // be sure the interface is used
         if ($newModel instanceof UserDao) {
@@ -32,12 +32,12 @@
     }
 
     //update user
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['operations'] === 'update') {
         
     }
 
     //delete user
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['operations'] === 'delete') {
         
     }
 ?>

@@ -2,6 +2,8 @@
     interface UserDao{
         function createUser(User $user);
         function readUser():array;
+        function updateUser();
+        function deleteUser();
     }
 
     class UserDaoImpl implements UserDao
@@ -33,6 +35,14 @@
         
         
         return $userContainer;
+    }
+
+    function updateUser(){
+
+    }
+
+    function deleteUser(){
+        
     }
 }
 
