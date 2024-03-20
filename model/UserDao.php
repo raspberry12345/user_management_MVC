@@ -3,7 +3,7 @@
         function createUser(User $user);
         function readUser():array;
         function updateUser();
-        function deleteUser();
+        function deleteUser(int $userId);
     }
 
     class UserDaoImpl implements UserDao
@@ -38,10 +38,15 @@
     }
 
     function updateUser(){
-
+        require_once '../connectDb.php';
     }
 
-    function deleteUser(){
+    function deleteUser(int $userId){
+        require_once '../connectDb.php';
+        
+        $stmt = $pdo->prepare('DELETE FROM `users` WHERE `id`=:userId');
+        $stmt->bindValue(':userId', $userId);
+        $stmt->execute();
         
     }
 }

@@ -19,14 +19,30 @@ window.onload = () => {
         const changeBtn = document.getElementById("update")
         const deleteBtn = document.getElementById("delete")
         const inputId = document.getElementById("idInput")
+        const submitBtn = document.getElementById("submitBtn")
         changeBtn.addEventListener("click",()=>{
                 
             if (availableIds.includes(Number(inputId.value))) {
-                fetch("controller/userController.php?id="+inputId.value+"&operations=update",{
-                    method: 'GET'
-                })
+                const editInput = document.getElementById("editInput")
+                const headingEdit = document.getElementById("heading")
+                
+                editInput.style.display = "block"
+                headingEdit.innerHTML = "edit user with the id= "+inputId.value
+                
             }
         })
+
+        submitBtn.addEventListener("click", ()=>{
+
+            const firstnameEdit = document.getElementById("firstname")
+            const lastnameEdit = document.getElementById("lastname")
+            const ageEdit = document.getElementById("age")
+
+            fetch("controller/userController.php?id="+inputId.value+"&operations=update",{
+                method: 'GET'
+            })
+        })
+
         
         deleteBtn.addEventListener("click",()=>{
                 

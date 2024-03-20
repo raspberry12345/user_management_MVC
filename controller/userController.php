@@ -38,6 +38,11 @@
 
     //delete user
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['operations'] === 'delete') {
-        
+        $newModel = new UserDaoImpl();
+        // be sure the interface is used
+        if ($newModel instanceof UserDao) {
+            //Database transaction
+            $newModel->deleteUser((int) $_GET['id']);
+        }
     }
 ?>
