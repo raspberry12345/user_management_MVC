@@ -38,7 +38,7 @@ window.onload = () => {
             const lastnameEdit = document.getElementById("lastname")
             const ageEdit = document.getElementById("age")
 
-            fetch("controller/userController.php?id="+inputId.value+"&operations=update",{
+            fetch("controller/userController.php?id="+inputId.value+"&operations=update&firstname="+firstnameEdit.value+"&lastname="+lastnameEdit.value+"&age="+ageEdit.value,{
                 method: 'GET'
             })
         })

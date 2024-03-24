@@ -5,12 +5,27 @@ class User
         private $firstname;
         private $lastname;
         private $age;
+        private $id;
         
-        function __construct(string $firstname,string $lastname,string $age)
+        function __construct(string $firstname,string $lastname,string $age, int $id=null)
         {
-            $this->firstname = $firstname;
-            $this->lastname = $lastname;
-            $this->age = $age;
+            if (is_null($id)) {
+                # code...
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
+                $this->age = $age;
+            }else{
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
+                $this->age = $age;
+                $this->id = $id;
+            }
+           
+            
+        }
+
+        function getId(){
+            return $this->id;
         }
         function getFirstname(){
             return $this->firstname;

@@ -33,7 +33,12 @@
 
     //update user
     if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_GET['operations'] === 'update') {
-        
+        $newModel = new UserDaoImpl;
+        if ($newModel instanceof UserDao) {
+            $userUpdate = new User($_GET['firstname'], $_GET['lastname'], $_GET['age'], $_GET['id']);
+            //Database transaction
+            $newModel->updateUser($userUpdate);
+        }
     }
 
     //delete user
